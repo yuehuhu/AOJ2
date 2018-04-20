@@ -4,6 +4,7 @@
 #include<algorithm>
 #include<math.h>
 #include<stack>
+#include<string>
 #define Lens 105
 #define Nil -1
 using namespace std;
@@ -12,10 +13,10 @@ int N, sum;
 stack<int> s;
 int main()
 {
-	char c;
+	string c;
 	while (cin >> c)
 	{
-		if (c == '+')
+		if (c[0] == '+')
 		{
 			int a = s.top();
 			s.pop();
@@ -24,7 +25,7 @@ int main()
 			s.push(a + b);
 
 		}
-		else if (c == '-')
+		else if (c[0] == '-')
 		{
 			int a = s.top();
 			s.pop();
@@ -32,7 +33,7 @@ int main()
 			s.pop();
 			s.push(b-a);
 		}
-		else if (c == '*')
+		else if (c[0] == '*')
 		{
 			int a = s.top();
 			s.pop();
@@ -42,7 +43,7 @@ int main()
 		}
 		else
 		{
-			int t = c-'0';
+			int t = atoi(c.c_str());
 			s.push(t);
 		}
 	}
